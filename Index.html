@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SAMRA PET SHOP</title>
 
     <!-- Google Fonts -->
@@ -18,18 +17,19 @@
 </head>
 <body>
 
+    <!-- Header -->
     <header class="header">
         <a href="#" class="logo">SAMRA PET SHOP</a>
         <nav class="navbar">
-            <a href="#" class="active">Home</a>
-            <a href="#">About</a>
-            <a href="#">Service</a>
-            <a href="#">Contact</a>
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
         </nav>
-        <i class='bx bx-menu hamburger'></i>
+        <i class="bx bx-menu hamburger"></i>
     </header>
 
-    <section class="home">
+    <!-- Home Section -->
+    <section class="home" id="home">
         <div class="home-image">
             <div>
                 <img src="imageedit_1_6603584773.gif" alt="Samra Pet Shop" />
@@ -44,25 +44,38 @@
                 At Samra PET Shop, we bring joy to your furry friends with top-quality products
                 and care that pets truly deserve. Make every day a paw-some adventure!
             </p>
+
+            <!-- Contact Card -->
+            <div class="contact-card" id="contact">
+                <h3>Samrapetshop</h3>
+                <p>سمرا لمستلزمات الحيوانات الأليفة 🐕🐈</p>
+                <p>موقعنا: البيادر الجندويل مقابل إدارة السير 📍</p>
+                <p>📞 0792029400</p>
+                <a href="https://maps.app.goo.gl/QeRMKzAMJhiYDxd19?g_st=ipc" target="_blank" class="map-link">
+                    عرض الموقع على الخريطة
+                </a>
+            </div>
         </div>
     </section>
 
-    <!-- Social Media Icons -->
-    <div class="home-sci">
-        <a href="#"><i class='bx bxl-facebook'></i></a>
-        <a href="#"><i class='bx bxl-linkedin-square'></i></a>
-        <a href="#"><i class='bx bxl-instagram'></i></a>
-        <a href="#"><i class='bx bxl-whatsapp'></i></a>
-        <a href="#"><i class='bx bxl-twitter'></i></a>
-    </div>
+    <!-- Social Icons -->
+  
+    <aside class="social">
+        <a href="https://www.facebook.com/share/1FRSj7rCHK/?mibextid=wwXIfr"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.instagram.com/samrapetshop?igsh=MXRsbzU3NHFjOGE0Zw%3D%3D&utm_source=qr"><i class="bx bxl-instagram"></i></a>
+        <a href="https://wa.me/962792029400"><i class="bx bxl-whatsapp"></i></a>
+    </aside>
 
+
+    <!-- Script -->
     <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navbar = document.querySelector('.navbar');
+        const hamburger = document.querySelector(".hamburger");
+        const navbar = document.querySelector(".navbar");
 
-        hamburger.addEventListener('click', () => {
-            navbar.classList.toggle('active');
+        hamburger.addEventListener("click", () => {
+            navbar.classList.toggle("active");
         });
     </script>
+
 </body>
 </html>
