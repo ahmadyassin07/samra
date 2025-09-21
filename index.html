@@ -42,6 +42,7 @@
     <button onclick="changeContent()">Click Me!</button>
     
     <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
         function changeContent() {
             document.querySelector('p').innerText = "You clicked the button! Great job!";
         }
@@ -49,6 +50,7 @@
 
 </body>
 </html>
+
 
 
 
