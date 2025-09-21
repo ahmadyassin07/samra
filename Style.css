@@ -49,7 +49,7 @@ body {
     right: -100%;
     width: 220px;
     max-width: 90vw;
-    background: #fff;
+    background: rgba(3,21,64,0.95);
     flex-direction: column;
     padding: 16px;
     border-radius: 12px;
@@ -60,9 +60,9 @@ body {
 }
 
     .navbar a {
-        font-size: 15px;
+        font-size: 16px;
         padding: 10px 0;
-        color: #031540;
+        color: #fff;
         text-decoration: none;
         font-weight: 600;
         transition: 0.3s;
@@ -75,7 +75,7 @@ body {
         }
 
     .navbar.active {
-        right: 20px;
+        right: 5%;
     }
 
 .hamburger {
@@ -146,7 +146,7 @@ body {
     position: relative;
     height: auto;
     max-width: 600px;
-    margin: 20px auto;
+    margin: 20px auto 0;
     text-align: center;
 }
 
@@ -177,7 +177,7 @@ body {
     color: #f9f9f9;
     padding: 25px;
     border-radius: 16px;
-    margin-top: 20px;
+    margin-top: 120px; /* زيادة المسافة عن الرسائل الترحيبية */
     width: 100%;
     max-width: 400px;
     text-align: center;
@@ -310,55 +310,6 @@ aside.social {
         box-shadow: 0 8px 16px rgba(0,0,0,0.3);
     }
 
-/* ================= Responsive ================= */
-@media (min-width: 768px) {
-    .home {
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        text-align: left;
-        gap: 60px;
-    }
-
-    .home-content {
-        text-align: right;
-    }
-
-    .contact-card {
-        margin: 40px auto;
-    }
-}
-
-@media (min-width: 1024px) {
-    .navbar {
-        position: static;
-        flex-direction: row;
-        background: none;
-        width: auto;
-        box-shadow: none;
-        padding: 0;
-        gap: 40px;
-    }
-
-        .navbar a {
-            color: #fff;
-        }
-
-    .hamburger {
-        display: none;
-    }
-
-    .home-image div {
-        width: 360px;
-        height: 360px;
-        border: 12px solid #dfbd3b;
-    }
-
-    .home-image img {
-        max-width: 320px;
-    }
-}
-
 /* ================= Arabic & English Text ================= */
 .arabic-text {
     direction: rtl;
@@ -383,3 +334,119 @@ aside.social {
         color: #ffd700;
     }
 
+/* ================= Fade In/Out Animation ================= */
+.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* ================= Responsive ================= */
+@media (max-width: 1024px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+        padding: 120px 20px 50px;
+        gap: 30px;
+    }
+
+    .home-image div {
+        width: 60vw;
+        height: 60vw;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .home-content h1 {
+        font-size: 28px;
+    }
+
+    .home-content h3 {
+        font-size: 18px;
+    }
+
+    .home-text {
+        font-size: 14px;
+        max-width: 90%;
+    }
+
+    .contact-card {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 767px) {
+    .home-image div {
+        width: 70vw;
+        height: 70vw;
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+    .home-content h1 {
+        font-size: 24px;
+    }
+
+    .home-content h3 {
+        font-size: 16px;
+    }
+
+    .home-text {
+        font-size: 13px;
+    }
+
+    .contact-card {
+        margin-top: 100px;
+        padding: 18px;
+    }
+
+    .map-link {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+
+    aside.social {
+        gap: 12px;
+    }
+
+        aside.social a {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+        }
+
+    #scrollTopBtn {
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
+        font-size: 22px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
