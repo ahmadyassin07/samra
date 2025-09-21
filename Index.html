@@ -59,14 +59,14 @@
     </section>
 
     <!-- Social Icons -->
-  
+
     <aside class="social">
         <a href="https://www.facebook.com/share/1FRSj7rCHK/?mibextid=wwXIfr"><i class="bx bxl-facebook"></i></a>
         <a href="https://www.instagram.com/samrapetshop?igsh=MXRsbzU3NHFjOGE0Zw%3D%3D&utm_source=qr"><i class="bx bxl-instagram"></i></a>
         <a href="https://wa.me/962792029400"><i class="bx bxl-whatsapp"></i></a>
     </aside>
 
-
+    <a href="#" id="scrollTopBtn" title="Go to top">&#8679;</a>
     <!-- Script -->
     <script>
 
@@ -81,6 +81,25 @@
 
         hamburger.addEventListener("click", () => {
             navbar.classList.toggle("active");
+        });
+
+
+
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Show button after scrolling down 200px
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        };
+
+        // Scroll smoothly to top when clicked
+        scrollTopBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 

@@ -263,3 +263,28 @@ aside.social {
         max-width: 320px;
     }
 }
+
+#scrollTopBtn {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 30px; /* slightly closer to edge for modern design */
+    right: 30px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background-color: #FFD700; /* Gold color */
+    color: #ffffff;
+    border: none; /* clean button without border */
+    border-radius: 50%; /* circular for a modern look */
+    text-align: center;
+    line-height: 50px; /* vertically center the icon/text */
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* slightly stronger shadow */
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+    #scrollTopBtn:hover {
+        transform: scale(1.1); /* subtle hover effect */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* stronger shadow on hover */
+    }
