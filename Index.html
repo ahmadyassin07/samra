@@ -69,6 +69,13 @@
 
     <!-- Script -->
     <script>
+
+        // Disable right-click
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault(); // Prevent the context menu
+            alert("Right-click is disabled on this page."); // Optional alert
+        });
+
         const hamburger = document.querySelector(".hamburger");
         const navbar = document.querySelector(".navbar");
 
