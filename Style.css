@@ -1,0 +1,301 @@
+﻿/* Google Fonts imported via HTML, no need to import again */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #dfbd3b;
+    color: #031540;
+}
+
+/* Header */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 10%;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #031540;
+    text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    gap: 20px;
+}
+
+    .navbar a {
+        font-size: 16px;
+        color: #031540;
+        text-decoration: none;
+        font-weight: 500;
+        transition: .3s;
+    }
+
+        .navbar a:hover,
+        .navbar a.active {
+            color: #dfbd3b;
+        }
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    font-size: 28px;
+    color: #031540;
+    cursor: pointer;
+}
+
+/* Home Section */
+.home {
+    min-height: 100vh;
+    background: linear-gradient(-90deg, #dfbd3b 65%, #fff 35%);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 100px 10% 40px;
+}
+
+.home-image {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .home-image div {
+        width: 320px;
+        height: 320px;
+        max-width: 90vw;
+        background: #dfbd3b;
+        border-radius: 50%;
+        border: 15px solid #fff;
+        outline: 15px solid #dfbd3b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home-image img {
+        width: 90%;
+        height: auto;
+        max-width: 300px;
+    }
+
+.home-content {
+    flex: 1 1 350px;
+    color: #fff;
+    text-align: right;
+}
+
+    .home-content h1 {
+        font-size: clamp(28px, 6vw, 55px);
+        line-height: 1.2;
+    }
+
+    .home-content h3 {
+        font-size: clamp(20px, 4vw, 35px);
+        color: transparent;
+        -webkit-text-stroke: 0.5px #fff;
+        margin-top: 10px;
+    }
+
+    .home-content p {
+        font-size: 15px;
+        margin-top: 20px;
+        color: #fff;
+        line-height: 1.6;
+    }
+
+/* Social Icons Modern Look */
+.home-sci {
+    display: flex;
+    gap: 15px;
+    position: fixed; /* Always visible */
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    flex-direction: column; /* Vertical layout */
+}
+
+    .home-sci a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background: #031540; /* Brand-color base */
+        color: #fff;
+        border-radius: 50%;
+        font-size: 24px;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        transform: translateY(0);
+    }
+
+        .home-sci a:hover {
+            background: #dfbd3b; /* Accent color */
+            color: #031540;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+/* Responsive */
+@media (max-width: 991px) {
+    .home {
+        background: linear-gradient(#dfbd3b 60%, #fff 40%);
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-content {
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        position: absolute;
+        top: 70px;
+        right: -100%;
+        background: #fff;
+        width: 200px;
+        flex-direction: column;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: 0.3s;
+    }
+
+        .navbar.active {
+            right: 10%;
+        }
+
+    .hamburger {
+        display: block;
+    }
+
+    .home-sci {
+        flex-direction: row; /* Horizontal on tablets */
+        bottom: 15px;
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+        .home-sci a {
+            width: 45px;
+            height: 45px;
+            font-size: 20px;
+        }
+}
+
+@media (max-width: 480px) {
+    .home-image div {
+        width: 250px;
+        height: 250px;
+        border: 10px solid #fff;
+        outline: 10px solid #dfbd3b;
+    }
+
+    .home-image img {
+        max-width: 200px;
+    }
+
+    .home-content h1 {
+        font-size: 32px;
+    }
+
+    .home-content h3 {
+        font-size: 22px;
+    }
+
+    .home-sci a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .home-content p {
+        color: #031540; /* Dark color for readability */
+    }
+}
+
+@media (max-width: 768px) {
+    .home-content h1,
+    .home-content h3 {
+        color: #031540; /* Ensure all text is visible */
+    }
+}
+/* Social Icons Fixed on the Side for All Devices */
+.home-sci {
+    display: flex;
+    flex-direction: column; /* Always vertical */
+    gap: 15px;
+    position: fixed; /* Always visible */
+    bottom: 50%; /* Center vertically */
+    right: 20px; /* Distance from right edge */
+    transform: translateY(50%); /* Center the stack */
+    z-index: 1000;
+}
+
+    .home-sci a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        background: #031540; /* Brand color */
+        color: #fff;
+        border-radius: 50%;
+        font-size: 24px;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        transform: translateY(0);
+    }
+
+        .home-sci a:hover {
+            background: #dfbd3b; /* Accent color */
+            color: #031540;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+/* Keep size responsive but same layout */
+@media (max-width: 768px) {
+    .home-sci a {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-sci a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+}
