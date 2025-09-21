@@ -7,7 +7,8 @@
 
 html, body {
     width: 100%;
-    overflow-x: hidden; /* prevent horizontal scroll */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -15,6 +16,7 @@ body {
     background: linear-gradient(135deg, #031540, #0a1d3b);
     color: #f9f9f9;
     line-height: 1.6;
+    text-align: right;
 }
 
 /* ================= Header ================= */
@@ -41,11 +43,10 @@ body {
     letter-spacing: 1px;
 }
 
-/* ================= Navbar ================= */
 .navbar {
     position: absolute;
     top: 70px;
-    right: -100%; /* hide offscreen initially */
+    right: -100%;
     width: 220px;
     max-width: 90vw;
     background: #fff;
@@ -61,22 +62,22 @@ body {
     .navbar a {
         font-size: 15px;
         padding: 10px 0;
-        color: #031540; /* mobile links dark */
+        color: #031540;
         text-decoration: none;
         font-weight: 600;
         transition: 0.3s;
+        text-align: right;
     }
 
         .navbar a:hover,
         .navbar a.active {
-            color: #dfbd3b; /* golden hover */
+            color: #dfbd3b;
         }
 
     .navbar.active {
-        right: 20px; /* show navbar when hamburger clicked */
+        right: 20px;
     }
 
-/* Hamburger Icon */
 .hamburger {
     font-size: 28px;
     color: #dfbd3b;
@@ -89,7 +90,7 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 28px;
-    padding: 120px 20px 60px; /* header height accounted */
+    padding: 140px 20px 60px;
     text-align: center;
 }
 
@@ -116,6 +117,10 @@ body {
     max-width: 260px;
 }
 
+.home-content h1, .home-content h3, .home-text {
+    text-align: right;
+}
+
 .home-content h1 {
     font-size: clamp(28px, 6vw, 48px);
     color: #dfbd3b;
@@ -129,62 +134,122 @@ body {
     font-weight: 500;
 }
 
-.home-content p {
+.home-text {
     font-size: 16px;
     margin-top: 14px;
     max-width: 600px;
     color: #eaeaea;
 }
 
+/* ================= Welcome Messages ================= */
+.welcome-container {
+    position: relative;
+    height: auto;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.welcome-message {
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+    .welcome-message.arabic-text {
+        direction: rtl;
+        color: #dfbd3b;
+        font-weight: 600;
+    }
+
+    .welcome-message.english-text {
+        direction: ltr;
+        color: #ffffff;
+        font-weight: 700;
+    }
+
 /* ================= Contact Card ================= */
 .contact-card {
-    background: rgba(3, 21, 64, 0.9); /* dark semi-transparent */
-    color: #dfbd3b; /* golden text */
-    padding: 20px;
-    border-radius: 14px;
+    background: rgba(3, 21, 64, 0.9);
+    color: #f9f9f9;
+    padding: 25px;
+    border-radius: 16px;
     margin-top: 20px;
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
     .contact-card:hover {
         transform: translateY(-5px);
-        background: rgba(3, 21, 64, 1); /* stronger on hover */
+        background: rgba(3, 21, 64, 1);
+        box-shadow: 0 12px 35px rgba(0,0,0,0.5);
     }
 
     .contact-card h3 {
-        font-size: 20px;
+        font-size: 22px;
         margin-bottom: 10px;
-        color: #dfbd3b; /* golden heading */
+        color: #dfbd3b;
+        font-weight: 700;
     }
 
     .contact-card p {
-        font-size: 14px;
+        font-size: 15px;
         margin: 6px 0;
-        color: #f9f9f9; /* light text for readability */
+        color: #eaeaea;
     }
 
-    .contact-card .map-link {
-        display: inline-block;
-        margin-top: 12px;
-        padding: 10px 20px;
+.map-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 22px;
+    background: #dfbd3b;
+    color: #031540;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+    .map-link:hover {
+        background: #fff;
+        color: #031540;
+        transform: scale(1.05);
+    }
+
+/* ================= Social Links ================= */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+    .social-links a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
         background: #dfbd3b;
         color: #031540;
-        border-radius: 8px;
-        text-decoration: none;
-        font-weight: 600;
+        border-radius: 50%;
+        font-size: 20px;
         transition: all 0.3s ease;
     }
 
-        .contact-card .map-link:hover {
+        .social-links a:hover {
             background: #fff;
             color: #031540;
+            transform: scale(1.2) rotate(10deg);
         }
 
-/* ================= Social Icons Aside ================= */
+/* ================= Social Aside ================= */
 aside.social {
     position: fixed;
     top: 50%;
@@ -219,6 +284,32 @@ aside.social {
             transform: scale(1.15) rotate(10deg);
         }
 
+/* ================= Scroll Top Button ================= */
+#scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background-color: #FFD700;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+    #scrollTopBtn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
 /* ================= Responsive ================= */
 @media (min-width: 768px) {
     .home {
@@ -230,7 +321,11 @@ aside.social {
     }
 
     .home-content {
-        text-align: left;
+        text-align: right;
+    }
+
+    .contact-card {
+        margin: 40px auto;
     }
 }
 
@@ -242,11 +337,11 @@ aside.social {
         width: auto;
         box-shadow: none;
         padding: 0;
-        gap: 40px; /* Add spacing between links */
+        gap: 40px;
     }
 
         .navbar a {
-            color: #fff; /* desktop links white */
+            color: #fff;
         }
 
     .hamburger {
@@ -264,27 +359,27 @@ aside.social {
     }
 }
 
-#scrollTopBtn {
-    display: none; /* Hidden by default */
-    position: fixed;
-    bottom: 30px; /* slightly closer to edge for modern design */
-    right: 30px;
-    z-index: 1000;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    background-color: #FFD700; /* Gold color */
-    color: #ffffff;
-    border: none; /* clean button without border */
-    border-radius: 50%; /* circular for a modern look */
-    text-align: center;
-    line-height: 50px; /* vertically center the icon/text */
-    cursor: pointer;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* slightly stronger shadow */
-    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+/* ================= Arabic & English Text ================= */
+.arabic-text {
+    direction: rtl;
+    font-family: "Poppins", sans-serif;
 }
 
-    #scrollTopBtn:hover {
-        transform: scale(1.1); /* subtle hover effect */
-        box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* stronger shadow on hover */
+.english-text {
+    direction: ltr;
+    font-family: "DM Sans", sans-serif;
+}
+
+.mixed-text {
+    direction: rtl;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #eaeaea;
+}
+
+    .mixed-text .english-text {
+        direction: ltr;
+        font-weight: 600;
+        color: #ffd700;
     }
+
