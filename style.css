@@ -93,7 +93,8 @@ html, body {
 
 .home-image div {
     width: 60vw;
-    max-width: 250px;
+    max-width: 300px;
+    max-height: 300px;
     aspect-ratio: 1/1;
     border-radius: 50%;
     background: radial-gradient(circle at 30% 30%, #dfbd3b, #031540);
@@ -158,13 +159,13 @@ html, body {
 
 /* Text */
 .home-content h1 {
-    font-size: clamp(24px, 6vw, 48px);
+    font-size: clamp(20px, 6vw, 40px);
     color: #dfbd3b;
     font-weight: 700;
 }
 
 .home-content h3 {
-    font-size: clamp(16px, 4vw, 28px);
+    font-size: clamp(12px, 4vw, 20px);
     color: #ffffff;
     margin-top: 12px;
     font-weight: 500;
@@ -265,7 +266,8 @@ aside.social {
     flex-direction: column;
     gap: 16px;
     padding: 10px;
-    background: rgba(223, 189, 59, 0.9);
+    background: rgba(223, 189, 59, 0.6); /* less opacity */
+    backdrop-filter: blur(6px); /* glass effect */
     border-radius: 12px 0 0 12px;
     box-shadow: -4px 0 12px rgba(0,0,0,0.3);
     z-index: 1000;
@@ -276,7 +278,17 @@ aside.social {
         height: 44px;
         font-size: 20px;
         color: #031540;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
     }
+
+        aside.social a:hover {
+            color: #dfbd3b;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
 
 /* ================= Scroll Top Button ================= */
 #scrollTopBtn {
@@ -323,9 +335,10 @@ aside.social {
     }
 
     .home-image div {
-        width: 50vw;
-        height: 50vw;
-        max-width: 220px;
+        width: 60vw;
+        height: 60vw;
+        max-width: 300px;
+        max-height: 300px;
     }
 }
 
@@ -334,14 +347,15 @@ aside.social {
         width: 50vw;
         height: 50vw;
         max-width: 220px;
+        max-height:220px;
     }
 
     .home-content h1 {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     .home-content h3 {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .map-link {
