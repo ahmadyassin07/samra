@@ -14,7 +14,7 @@ hamburger.addEventListener("click", () => {
 // Scroll top button
 const scrollTopBtn = document.getElementById("scrollTopBtn");
 window.onscroll = function () {
-    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 200) {
+    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
         scrollTopBtn.style.display = "block";
     } else {
         scrollTopBtn.style.display = "none";
@@ -44,4 +44,5 @@ setInterval(() => {
     current = (current + 1) % messages.length;
     showMessage(current);
 }, 8000);
+
 
