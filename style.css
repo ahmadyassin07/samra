@@ -89,30 +89,74 @@ html, body {
     text-align: center;
 }
 
+/* Modern Floating Image Container */
+
 .home-image div {
     width: 60vw;
-    max-width: 300px;
+    max-width: 250px;
     aspect-ratio: 1/1;
-    background: #fff;
     border-radius: 50%;
-    border: 10px solid #dfbd3b;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: radial-gradient(circle at 30% 30%, #dfbd3b, #031540);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.5s ease;
     overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
+
+
+
+
+
+
+
+
 
     .home-image div:hover {
-        transform: scale(1.05);
+        transform: scale(1.08);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     }
 
+/* Floating & Slight Rotation Animation for GIF */
 .home-image img {
-    width: 80%;
-    max-width: 260px;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    display: block;
+    border-radius: 20px;
+    animation: float 4s ease-in-out infinite, rotateSlight 6s linear infinite;
 }
 
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes rotateSlight {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* Text */
 .home-content h1 {
     font-size: clamp(24px, 6vw, 48px);
     color: #dfbd3b;
@@ -124,12 +168,6 @@ html, body {
     color: #ffffff;
     margin-top: 12px;
     font-weight: 500;
-}
-
-.home-text {
-    font-size: 1rem;
-    max-width: 600px;
-    color: #eaeaea;
 }
 
 /* ================= Contact Card ================= */
@@ -227,7 +265,7 @@ aside.social {
     flex-direction: column;
     gap: 16px;
     padding: 10px;
-    background: rgba(3, 21, 64, 0.6);
+    background: rgba(223, 189, 59, 0.9);
     border-radius: 12px 0 0 12px;
     box-shadow: -4px 0 12px rgba(0,0,0,0.3);
     z-index: 1000;
@@ -237,6 +275,7 @@ aside.social {
         width: 44px;
         height: 44px;
         font-size: 20px;
+        color: #031540;
     }
 
 /* ================= Scroll Top Button ================= */
@@ -284,17 +323,17 @@ aside.social {
     }
 
     .home-image div {
-        width: 60vw;
-        height: 60vw;
-        max-width: 300px;
+        width: 50vw;
+        height: 50vw;
+        max-width: 220px;
     }
 }
 
 @media (max-width: 767px) {
     .home-image div {
-        width: 70vw;
-        height: 70vw;
-        max-width: 250px;
+        width: 50vw;
+        height: 50vw;
+        max-width: 220px;
     }
 
     .home-content h1 {
@@ -311,19 +350,20 @@ aside.social {
     }
 
     aside.social a {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         font-size: 18px;
     }
 
     #scrollTopBtn {
         width: 45px;
         height: 45px;
-        font-size: 28px;
+        font-size: 24px;
         bottom: 20px;
         right: 20px;
     }
 }
+
 /* ================= Welcome Messages ================= */
 .welcome-container {
     position: relative;
