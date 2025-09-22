@@ -9,12 +9,10 @@ const hamburger = document.querySelector(".hamburger");
 const navbar = document.querySelector(".navbar");
 
 hamburger.addEventListener("click", () => {
-    navbar.classList.toggle("active");
-    // Animate hamburger to X
+    navbar.classList.toggle("active"); // matches CSS
     hamburger.classList.toggle("bx-x");
 });
 
-// Close navbar when a link is clicked (UX improvement)
 navbar.querySelectorAll("a").forEach(link => {
     link.addEventListener("click", () => {
         navbar.classList.remove("active");
@@ -27,18 +25,15 @@ const scrollTopBtn = document.getElementById("scrollTopBtn");
 
 window.addEventListener("scroll", () => {
     if (window.scrollY > 200) {
-        scrollTopBtn.style.display = "flex"; // use flex for centering
+        scrollTopBtn.style.display = "flex";
     } else {
         scrollTopBtn.style.display = "none";
     }
 });
 
-scrollTopBtn.addEventListener("click", (e) => {
+scrollTopBtn.addEventListener("click", e => {
     e.preventDefault();
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 // ================= Fade In/Out Welcome Messages =================
@@ -59,10 +54,7 @@ function showMessage(index) {
     });
 }
 
-// Initial message
 showMessage(currentMessage);
-
-// Rotate messages every 4 seconds
 setInterval(() => {
     currentMessage = (currentMessage + 1) % messages.length;
     showMessage(currentMessage);
@@ -73,16 +65,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
 });
 
 // ================= Dynamic Copyright Year =================
 const yearSpan = document.getElementById('year');
-if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-}
+if (yearSpan) yearSpan.textContent = new Date().getFullYear();
