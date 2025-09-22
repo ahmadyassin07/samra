@@ -66,7 +66,7 @@ showMessage(currentMessage);
 setInterval(() => {
     currentMessage = (currentMessage + 1) % messages.length;
     showMessage(currentMessage);
-}, 4000);
+}, 5000);
 
 // ================= Smooth Scroll for Anchor Links =================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
