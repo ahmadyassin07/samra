@@ -31,30 +31,49 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-    .header .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #DFBD3B;
+/* Logo + Image Container */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* reduce space between image and text */
+}
+
+/* Logo Text */
+.header .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #DFBD3B;
+    text-decoration: none;
+}
+
+/* Header Image next to Logo */
+.header-image img {
+    height: 100px; /* small size */
+    width: auto;
+    margin-left: 2px; /* space from text */
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Navbar */
+.header .navbar {
+    display: flex;
+    gap: 25px;
+}
+
+    .header .navbar a {
         text-decoration: none;
+        color: #fff;
+        font-weight: 500;
+        transition: 0.3s;
     }
 
-    .header .navbar {
-        display: flex;
-        gap: 25px;
-    }
-
-        .header .navbar a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: 500;
-            transition: 0.3s;
+        .header .navbar a.active,
+        .header .navbar a:hover {
+            color: #DFBD3B;
         }
 
-            .header .navbar a.active,
-            .header .navbar a:hover {
-                color: #DFBD3B;
-            }
-
+/* Hamburger Icon */
 .hamburger {
     display: none;
     font-size: 1.8rem;
@@ -68,7 +87,7 @@ body {
 .home {
     position: relative;
     width: 100%;
-    min-height: 100vh; /* flexible height */
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -116,24 +135,6 @@ body {
     .home-content h3 {
         font-size: 1.5rem;
         margin-bottom: 25px;
-    }
-
-/* Home Image */
-.home-image {
-    position: relative;
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    margin: 20px auto;
-    max-width: 100%;
-}
-
-    .home-image img {
-        width: 100%;
-        height: auto;
-        max-width: 350px;
-        border-radius: 12px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
     }
 
 /* Welcome Messages */
@@ -428,6 +429,28 @@ a {
         color: #DFBD3B;
     }
 
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/* Ensure home section content does not overflow */
+.home-content,
+.welcome-container {
+    max-width: 95%;
+}
+
 /* ===================================
    Responsive Adjustments
 =================================== */
@@ -438,10 +461,6 @@ a {
 
     .home-content h3 {
         font-size: 1.3rem;
-    }
-
-    .home-image img {
-        max-width: 300px;
     }
 }
 
@@ -485,35 +504,8 @@ a {
         font-size: 1.1rem;
     }
 
-    .home-image img {
-        max-width: 250px;
-    }
-
     .welcome-message {
         font-size: 0.95rem;
-    }
-
-    .contact-container {
-        padding: 30px 15px;
-    }
-
-    .map-link {
-        padding: 10px 16px;
-        font-size: 13px;
-    }
-
-    aside.social a {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
-    }
-
-    #scrollTopBtn {
-        width: 45px;
-        height: 45px;
-        font-size: 22px;
-        bottom: 20px;
-        right: 20px;
     }
 }
 
@@ -526,155 +518,7 @@ a {
         font-size: 0.95rem;
     }
 
-    .home-image img {
-        max-width: 200px;
-    }
-
     .welcome-message {
         font-size: 0.85rem;
     }
-
-    .social-links a, aside.social a {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
-    }
-
-    .map-link {
-        padding: 8px 12px;
-        font-size: 12px;
-    }
-
-    .contact-card {
-        padding: 20px 15px;
-    }
 }
-/* ===================================
-   Home Image & Video Stacking on Mobile
-=================================== */
-@media (max-width: 768px) {
-    .home {
-        padding-top: 100px; /* avoid header overlap */
-    }
-
-    .home-content,
-    .home-image,
-    .welcome-container {
-        width: 90%;
-        margin: 15px auto;
-    }
-
-        .home-image img {
-            max-width: 100%;
-            height: auto;
-        }
-}
-
-/* Fade-in welcome messages loop */
-@keyframes welcomeFade {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    10% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    30% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    40% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    100% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-}
-
-/* Optional: make the video smaller on very small screens */
-@media (max-width: 480px) {
-    .bg-video {
-        height: 60vh;
-    }
-}
-
-/* ===================================
-   Buttons, Cards, and Links tweaks
-=================================== */
-.map-link {
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.contact-card p {
-    font-size: 0.9rem;
-    line-height: 1.4rem;
-}
-
-/* Smooth scroll behavior */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Ensure z-index stacking for floating elements */
-#scrollTopBtn,
-aside.social {
-    z-index: 2000;
-}
-
-/* ===================================
-   Minor utilities
-=================================== */
-.hidden {
-    display: none !important;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.mt-20 {
-    margin-top: 20px;
-}
-
-.mb-20 {
-    margin-bottom: 20px;
-}
-
-/* Ensure home section content does not overflow */
-.home-content,
-.welcome-container,
-.home-image {
-    max-width: 95%;
-}
-
-unmute-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 15px;
-    background: #DFBD3B;
-    color: #031540;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
-}
-
-.unmute-btn:hover {
-    transform: scale(1.1);
-}
-
-/* ===================================
-   End of CSS
-=================================== */

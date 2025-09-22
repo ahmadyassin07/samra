@@ -4,21 +4,30 @@ document.addEventListener("contextmenu", function (e) {
     alert("Right-click is disabled on this page.");
 });
 
-// ================= Hamburger Menu Toggle =================
-const hamburger = document.querySelector(".hamburger");
-const navbar = document.querySelector(".navbar");
 
-hamburger.addEventListener("click", () => {
-    navbar.classList.toggle("active"); // matches CSS
-    hamburger.classList.toggle("bx-x");
+
+const hamburger = document.querySelector('.hamburger');
+const navbar = document.querySelector('.navbar');
+
+hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('active'); // show/hide menu
+
+    // toggle hamburger icon to X
+    if (hamburger.classList.contains('bx-menu')) {
+        hamburger.classList.remove('bx-menu');
+        hamburger.classList.add('bx-x');
+    } else {
+        hamburger.classList.remove('bx-x');
+        hamburger.classList.add('bx-menu');
+    }
 });
 
-navbar.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-        navbar.classList.remove("active");
-        hamburger.classList.remove("bx-x");
-    });
-});
+
+
+
+
+
+
 
 // ================= Scroll Top Button =================
 const scrollTopBtn = document.getElementById("scrollTopBtn");
