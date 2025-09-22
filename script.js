@@ -1,48 +1,88 @@
-﻿// Disable right-click
+﻿// ================= Disable Right-Click =================
 document.addEventListener("contextmenu", function (e) {
     e.preventDefault();
     alert("Right-click is disabled on this page.");
 });
 
-// Hamburger menu toggle
+// ================= Hamburger Menu Toggle =================
 const hamburger = document.querySelector(".hamburger");
 const navbar = document.querySelector(".navbar");
+
 hamburger.addEventListener("click", () => {
     navbar.classList.toggle("active");
+    // Animate hamburger to X
+    hamburger.classList.toggle("bx-x");
 });
 
-// Scroll top button
+// Close navbar when a link is clicked (UX improvement)
+navbar.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+        navbar.classList.remove("active");
+        hamburger.classList.remove("bx-x");
+    });
+});
+
+// ================= Scroll Top Button =================
 const scrollTopBtn = document.getElementById("scrollTopBtn");
-window.onscroll = function () {
-    if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
-        scrollTopBtn.style.display = "block";
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+        scrollTopBtn.style.display = "flex"; // use flex for centering
     } else {
         scrollTopBtn.style.display = "none";
     }
-};
-scrollTopBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Fade In/Out effect for welcome messages
+scrollTopBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// ================= Fade In/Out Welcome Messages =================
 const messages = document.querySelectorAll(".welcome-message");
-let current = 0;
+let currentMessage = 0;
 
 function showMessage(index) {
     messages.forEach((msg, i) => {
-        msg.style.opacity = i === index ? "1" : "0";
-        msg.style.transform = i === index ? "translateY(0)" : "translateY(20px)";
+        if (i === index) {
+            msg.style.opacity = "1";
+            msg.style.transform = "translateY(0)";
+            msg.style.transition = "opacity 1s ease, transform 1s ease";
+        } else {
+            msg.style.opacity = "0";
+            msg.style.transform = "translateY(20px)";
+            msg.style.transition = "opacity 1s ease, transform 1s ease";
+        }
     });
 }
 
 // Initial message
-showMessage(current);
+showMessage(currentMessage);
 
-// Change message every 4 seconds
+// Rotate messages every 4 seconds
 setInterval(() => {
-    current = (current + 1) % messages.length;
-    showMessage(current);
-}, 8000);
+    currentMessage = (currentMessage + 1) % messages.length;
+    showMessage(currentMessage);
+}, 4000);
 
+// ================= Smooth Scroll for Anchor Links =================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 
+// ================= Dynamic Copyright Year =================
+const yearSpan = document.getElementById('year');
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
